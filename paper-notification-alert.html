@@ -8,6 +8,18 @@ Example:
 
     <paper-notification-alert></paper-notification-alert>
 
+### Styling
+
+There are two themes `light` and `dark`. `light` is default one. To turn on `dark` theme you need to add `dark` class to `paper-notification-alert` tag.
+
+Also it is possible to specify colors for both `light` and `dark` theme using custom properties like `--color-theme-alert-light-success-background`.
+
+The generic template is `--color-theme-alert-<THEME>-<KIND>-<ATTR>`:
+
+- possible `<THEME>` are `light` and `dark`
+- possible `<KIND>` are `SUCCESS`, `INFO`, `WARNING` and `ERROR`
+- possible `<ATTR>` are `background`, `border` and `text`
+
 @group Hitsoft Elements
 @element paper-notification-alert
 @demo demo/index.html
@@ -100,11 +112,11 @@ Example:
             },
 
             /**
-             * Add new notification. `kind` can be one of following values: SUCCESS, INFO, WARNING or ERROR
+             * Adds new notification. `kind` can be one of following values: `SUCCESS`, `INFO`, `WARNING` or `ERROR`
              * @param {{
              *      kind: string,
              *      message: string
-             * }} msg
+             * }} msg  message to add to notification view
              */
             add: function(msg){
                 this.push('messages', msg);
