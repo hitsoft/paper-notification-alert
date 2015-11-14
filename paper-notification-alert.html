@@ -1,0 +1,115 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-material/paper-material.html">
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <paper-notification-alert></paper-notification-alert>
+
+@group Hitsoft Elements
+@element paper-notification-alert
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="paper-notification-alert">
+    <template>
+        <style>
+            paper-material {
+                display: block;
+                padding: 16px;
+                border: 1px solid;
+                margin: 16px 0;
+            }
+
+            .SUCCESS {
+                background-color: var(--color-theme-alert-light-success-background);
+                border-color: var(--color-theme-alert-light-success-border);
+                color: var(--color-theme-alert-light-success-text);
+            }
+
+            .INFO {
+                background-color: var(--color-theme-alert-light-info-background);
+                border-color: var(--color-theme-alert-light-info-border);
+                color: var(--color-theme-alert-light-info-text);
+            }
+
+            .WARNING {
+                background-color: var(--color-theme-alert-light-warning-background);
+                border-color: var(--color-theme-alert-light-warning-border);
+                color: var(--color-theme-alert-light-warning-text);
+            }
+
+            .ERROR {
+                background-color: var(--color-theme-alert-light-error-background);
+                border-color: var(--color-theme-alert-light-error-border);
+                color: var(--color-theme-alert-light-error-text);
+            }
+
+            :host(.dark) .SUCCESS {
+                background-color: var(--color-theme-alert-dark-success-background);
+                border-color: var(--color-theme-alert-dark-success-border);
+                color: var(--color-theme-alert-dark-success-text);
+            }
+
+            :host(.dark) .INFO {
+                background-color: var(--color-theme-alert-dark-info-background);
+                border-color: var(--color-theme-alert-dark-info-border);
+                color: var(--color-theme-alert-dark-info-text);
+            }
+
+            :host(.dark) .WARNING {
+                background-color: var(--color-theme-alert-dark-warning-background);
+                border-color: var(--color-theme-alert-dark-warning-border);
+                color: var(--color-theme-alert-dark-warning-text);
+            }
+
+            :host(.dark) .ERROR {
+                background-color: var(--color-theme-alert-dark-error-background);
+                border-color: var(--color-theme-alert-dark-error-border);
+                color: var(--color-theme-alert-dark-error-text);
+            }
+        </style>
+        <template is="dom-repeat" items="[[messages]]">
+            <paper-material elevation="1" class$="[[item.kind]]">
+                <span>[[item.message]]</span>
+            </paper-material>
+        </template>
+    </template>
+    <script>
+        'use strict';
+
+        Polymer({
+            is: 'paper-notification-alert',
+
+            properties: {
+                messages: {
+                    type: 'Array',
+                    value: function () {
+                        return [];
+                    }
+                }
+            },
+
+            /**
+             * Reset the view and remove all showing notifications
+             */
+            reset: function(){
+                this.messages = [];
+            },
+
+            /**
+             * Add new notification. `kind` can be one of following values: SUCCESS, INFO, WARNING or ERROR
+             * @param {{
+             *      kind: string,
+             *      message: string
+             * }} msg
+             */
+            add: function(msg){
+                this.push('messages', msg);
+            }
+
+        });
+    </script>
+</dom-module>

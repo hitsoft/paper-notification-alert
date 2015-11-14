@@ -1,0 +1,28 @@
+{
+  "name": "paper-notification-alert",
+  "version": "1.0.0",
+  "authors": [
+    "Konstantin Borisov <smeagol74@gmail.com>"
+  ],
+  "description": "This component shows colored alert boxes with notifications.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "hitsoft",
+    "notification"
+  ],
+  "main": "paper-notification-alert.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "http://stash.hitsoft-it.com:7990/projects/HP/repos/paper-notification-alert/browse",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "paper-material": "PolymerElements/paper-material#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
+  }
+}
